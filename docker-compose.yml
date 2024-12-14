@@ -1,11 +1,11 @@
 version: '3'
 services:
   nginx-rtmp:
-    build: .
-    container_name: tiangolo/nginx-rtmp
+    image: tiangolo/nginx-rtmp:latest
+    container_name: nginx-rtmp
     ports:
-      - "1935:1935"    # Porta RTMP para enviar fluxo
-      - "80:80"    # Porta HTTP para servir HLS
+      - "1935:1935"    # RTMP para enviar o vídeo do OBS
+      - "80:80"    # HLS para servir o vídeo no navegador
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
-      - ./hls:/var/www/html/hls
+      - ./nginx.conf:/etc/nginx/nginx.conf  # Arquivo de configuração NGINX
+      - ./hls:/var/www/html/hls             # Diretório para chunks HLS
