@@ -2,7 +2,7 @@ version: '3'
 services:
   nginx-rtmp:
     build: .
-    container_name: nginx-rtmp
+    container_name: tiangolo/nginx-rtmp
     ports:
       - "1935:1935"    # Porta RTMP para enviar fluxo
       - "80:80"    # Porta HTTP para servir HLS
