@@ -9,13 +9,13 @@ export default function Home() {
 
     if (Hls.isSupported()) {
       const hls = new Hls();
-      hls.loadSource('http://18.215.183.34:8080/hls/stream.m3u8'); // Coloque a URL do seu arquivo m3u8 aqui
+      hls.loadSource('http://18.215.183.34/hls/stream.m3u8'); // Coloque a URL do seu arquivo m3u8 aqui
       hls.attachMedia(video);
       hls.on(Hls.Events.MANIFEST_PARSED, () => {
         video.play();
       });
     } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      video.src = 'http://18.215.183.34:8080/hls/stream.m3u8';
+      video.src = 'http://18.215.183.34/hls/stream.m3u8';
       video.addEventListener('loadedmetadata', () => {
         video.play();
       });
