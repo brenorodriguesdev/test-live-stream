@@ -13,13 +13,13 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
-    - run: docker compose down --volumes
     - uses: actions/checkout@v4
     - run: echo "NEXT_PUBLIC_HLS=${{ secrets.NEXT_PUBLIC_HLS }}" > .env
     - run: sudo mkdir hls
     - run: chmod -R 777 ./hls
     - run: npm install
     - run: npm run build
+    - run: docker compose down --volumes
     - run: docker compose up -d
 
     
