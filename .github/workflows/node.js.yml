@@ -17,12 +17,7 @@ jobs:
       with: 
        clean: true
     - run: echo "NEXT_PUBLIC_HLS=${{ secrets.NEXT_PUBLIC_HLS }}" > .env
-    - run: sudo mkdir hls
-    - run: sudo chmod -R 777 ./hls
     - run: npm install
     - run: npm run build
-    - run: docker compose down --volumes
-    - run: docker compose up -d
-
 
     
